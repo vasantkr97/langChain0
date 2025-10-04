@@ -169,6 +169,24 @@ image_prompt = PromptTemplate(
     )
 )
 
+image_prompt_str = image_prompt.format(article=article)
+
 def generate_and_display_image(image_prompt):
     image_url = DallEAPIWrapper().run(image_prompt)
-    image
+    image_data = io.imread(image_url)
+
+    plt.imshow(image_data)
+    plt.axis('off')
+    plt.show()
+
+image_gen_runnable = RunnableLambda(generate_and_display_image)
+
+chain_four = (
+    { "article": lambda x: x["article"]}
+    | image_prompt
+    | llm
+    | (lambda x: x.content)
+    | image_gen_runnable
+)
+
+chain_four.invoke({ "article": article})
