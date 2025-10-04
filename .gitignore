@@ -1,0 +1,43 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Environment variables
+.env
+.env.*
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Poetry
+poetry.lock
+.pyproject.toml.venv
+
+# Jupyter / Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# LangChain cache or temporary data
+*.db
+*.sqlite
+*.json
+
+# Logs
+*.log
+
+# Build / Distribution
+build/
+dist/
+*.egg-info/
